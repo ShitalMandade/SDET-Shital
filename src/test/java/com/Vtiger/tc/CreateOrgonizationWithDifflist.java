@@ -26,72 +26,60 @@ import com.vtiger.generic.WebDriverCommonUtils;
 
 public class CreateOrgonizationWithDifflist {
 	/*public static void main (String []args) throws InterruptedException, IOException
-	{*/ 
-	
-		@Test 
-		public CreateOrgonizationWithDifflist() throws IOException, InterruptedException
-		{
+	{*/
+	@Test 
+	public CreateOrgonizationWithDifflist() throws IOException, InterruptedException{
 	    CreateOrgonizationWithDifflist cn=new CreateOrgonizationWithDifflist();
 		JavaUtilityMethod  ju=new JavaUtilityMethod ();
 		WebDriverCommonUtils picker= new WebDriverCommonUtils();
 		WebDriver driver=new ChromeDriver();
-		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		picker.implicitwait(driver);
-		//driver.manage().window().maximize();
 		picker.maximizeWindow(driver);
 		//Open Vtiger application
 		driver.get(picker.getDataFromProperty(Iconstant.propfilePath, "url"));
-		      //validate the login page 
+		 //validate the login page 
 	String lg =driver.findElement(By.linkText("vtiger")).getText();
 	   SoftAssert soft= new SoftAssert();
 	   soft.assertEquals(lg, "vtiger", "loing pass");
-	//Assert.assertEquals(lg, "vtiger", "loing pass");
-	//System.out.println(lg.equals("vtiger")? "loing pass":"login fail");
-	 //Enter valid USERNAME and PASSWORD and click on LOGIN
-		driver.findElement(By.name("user_name")).sendKeys();
-		driver.findElement(By.name("user_password")).sendKeys();
-		  
-		driver.findElement(By.id("submitButton")).click();
-		     // Validate Home page
+	driver.findElement(By.name("user_name")).sendKeys(picker.getDataFromProperty(Iconstant.propfilePath,"username"));
+	driver.findElement(By.name("user_password")).sendKeys(picker.getDataFromProperty(Iconstant.propfilePath,"password"));
+	driver.findElement(By.id("submitButton")).click();
+	// Validate Home page
 	String home =driver.findElement(By.className ("hdrLink")).getText();
-	//System.out.println( home.equals("Home")? "Homepage  pass":"HomePage fail");
-	    Assert.assertEquals(home, "Home", "Homepage  pass");
+	 Assert.assertEquals(home, "Home", "Homepage  pass");
 	  //Navigate to More and click on Projects
-	  		WebElement moveToMore = driver.findElement(By.linkText("More"));
-	  		/*Actions act= new Actions(driver);
-	  		act.moveToElement(moveToMore).perform();*/
-	  		picker.movetoelement(driver, moveToMore);
+	  WebElement moveToMore = driver.findElement(By.linkText("More"));
+	  picker.movetoelement(driver, moveToMore);
 	  		driver.findElement(By.name("Organizations")).click();
-	  //Click on Create contact + icon
-	  		driver.findElement(By.cssSelector("img[title='Create Organization...']")).click(); 
-	  	//provide org name	
+	  //Click on Create Organization + icon
+driver.findElement(By.cssSelector("img[title='Create Organization...']")).click(); 
+//provide org name	randomly
 	  		int random= ju.createRandomNumber();
 	  		String OrgonizationName= "orgo"+random; //cn.getOrgonizationName();
 	  		driver.findElement(By.name("accountname")).sendKeys(OrgonizationName);
-	  		//Enter phone
-	  		driver.findElement(By.id("phone")).sendKeys("2349890234");
+	 //Enter phone
+driver.findElement(By.id("phone")).sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",1,1));
 	  		//select Industry from list
 	  		
-	  		WebElement ilist=driver.findElement(By.name("industry"));
-	  		//CreateOrgonizationWithDifflist  slist=new CreateOrgonizationWithDifflist ();
-	  		picker.pickItemFromList(ilist, "Banking");
-	  		
-	  		//Select accounttype from list
-	  		WebElement typelist=driver.findElement(By.name("accounttype"));
-	  		picker.pickItemFromList(typelist, "Analyst");
+ WebElement ilist=driver.findElement(By.name("industry"));
+picker.pickItemFromList(ilist, picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",2,1));
+//Select accounttype from list
+	  	WebElement typelist=driver.findElement(By.name("accounttype"));
+picker.pickItemFromList(typelist, picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",3,1));
 	  		//Slect rating from list
 	  		WebElement ratinglist=driver.findElement(By.name("rating"));
-	  		picker.pickItemFromList(ratinglist, "Active");
+picker.pickItemFromList(ratinglist, picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",4,1));
 	  		
 	  	//click on save  //(//input[@value="  Save  "])[2]
-	  		driver.findElement(By.cssSelector("input[value=\"  Save  \"]")).click();
-             String actual=driver.findElement(By.className("dvHeaderText")).getText();
-             String expected="Organization Information";
-             
-             String result=   actual.contentEquals(expected)?"Organization Information pass":"Organization Information fail";
-             
-	  	
-	  driver.findElement(By.linkText("Organizations")).click();
+driver.findElement(By.cssSelector("input[value=\"  Save  \"]")).click();
+String actual=driver.findElement(By.className("dvHeaderText")).getText();
+ String expected=picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",5,1);//"Organization Information";
+ String result=   actual.contentEquals(expected)?"Organization Information pass":"Organization Information fail";
+ driver.findElement(By.linkText("Organizations")).click();
+ 
+ 
+ 
+ 
 	  //validate new orgonization added in list or not
 	/*List<WebElement> olist=driver.findElements(By.xpath("//table[@class=\"lvt small\"]/tbody/tr[*]/td[3]"));
 	 
@@ -107,27 +95,19 @@ public class CreateOrgonizationWithDifflist {
 	  
 	  
 	  WebElement search=driver.findElement(By.name("search_text"));
-	  /*WebDriverWait wait= new WebDriverWait(driver,20);
-	  wait.until(ExpectedConditions.elementToBeClickable(search));*/
 	  picker.elementisclickable(driver, search);
 	  search.sendKeys(OrgonizationName);
 	  WebElement olist=driver.findElement(By.xpath("//select[@id='bas_searchfield']"));
-	 // olist.click();
-	  picker.pickItemFromList(olist, "Organization Name");
-	  WebElement submit=driver.findElement(By.name("submit"));
+	 // select Organization Name and click();
+	  picker.pickItemFromList(olist,picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",6,1));
+	  //click on search button
 	  driver.findElement(By.name("submit")).click();
-	  //
-	  
-	// String actualorgname=driver.findElement(By.xpath("//a[text()='"+OrgonizationName+"']/ancestor::table[@class='lvt small']")).getText();
-	WebElement actualorgname1=driver.findElement(By.xpath("//a[text()='"+OrgonizationName+"']/ancestor::table[@class='lvt small']"));
-
-		picker.waitforElement(actualorgname1);
-
-		//System.out.println(actualorgname);
-		System.out.println(actualorgname1.getText());
-
-		//boolean result=actualorgname.contains(OrgonizationName);
-		boolean result1=actualorgname1.getText().contains(OrgonizationName);
+	  //wait for element until display
+	  WebElement actualorgname1=driver.findElement(By.xpath("//a[text()='"+OrgonizationName+"']/ancestor::table[@class='lvt small']"));
+      picker.waitforElement(actualorgname1);
+//System.out.println(actualorgname);
+//	System.out.println(actualorgname1.getText());
+boolean result1=actualorgname1.getText().contains(OrgonizationName);
 
 		System.out.println(result1);
 		 soft.assertAll();
@@ -135,7 +115,7 @@ public class CreateOrgonizationWithDifflist {
 
 		  
 		  }
-				
+}	
 	 
 	  
 	  
@@ -192,7 +172,7 @@ public class CreateOrgonizationWithDifflist {
 		}
 	*/
 	
-}
+
 
 
 

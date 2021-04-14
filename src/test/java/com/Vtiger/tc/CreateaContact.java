@@ -50,22 +50,15 @@ public class CreateaContact {
 		driver.findElement(By.cssSelector("img[title='Create Contact...']")).click(); 
 		//Select salutationtype
 		WebElement slist=driver.findElement(By.name("salutationtype"));
-		        Select s=new Select(slist);
-		         List<WebElement> stype=s.getOptions();
-				for(WebElement wb:stype)
-				{
-					if(wb.getText().equals("Mrs."))
-					{
-						s.selectByVisibleText("Mrs.");
-				}
-				}
+		picker.pickItemFromList(slist, "Mrs");
+		        
 		//Enter fistname
-		driver.findElement(By.name("firstname")).sendKeys("Swati");
-		driver.findElement(By.name("lastname")).sendKeys("Moharle");
+		driver.findElement(By.name("firstname")).sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateContactWithOrganizationIT",1, 1));
+		driver.findElement(By.name("lastname")).sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateContactWithOrganizationIT",2, 1));
 		//click on save
 		driver.findElement(By.cssSelector("input[type=submit]")).click();
 		
-		//driver.findElement(By.xpath("(//input[@type='submit'])[2]")).click();
+		
 		soft.assertAll();
 		
 		

@@ -340,14 +340,35 @@ public void  pickItemFromList(WebElement list ,String item)
 	}
 	
 	/**
-	 * Wait for elemet until it is displayed
-	 * @param element
-	 * @throws InterruptedException
+	 * Switch to child window
+	 * @param 
+	 * @throws 
 	 */
+	String mainid;
+	String childid;
+	public void childWindowHanlde(WebDriver driver)
+	{
+	//String mainid=driver.getWindowHandle();
+	Set<String> allid=driver.getWindowHandles();
+	 Iterator<String> itr=   allid.iterator();
+	   
+	   mainid=itr.next();
+	   childid =itr.next();
+	   driver.switchTo().window(childid);
+
+	
+	}
+	public void mainWindowHandle(WebDriver driver)
+	{
+		driver.switchTo().window(mainid);
+	}
 	
 	
+	
+	}
+	   
 	
 	
 	
 
-}
+
