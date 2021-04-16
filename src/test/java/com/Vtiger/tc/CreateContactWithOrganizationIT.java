@@ -17,19 +17,99 @@ import org.testng.asserts.SoftAssert;
 
 import com.vtiger.generic.Iconstant;
 import com.vtiger.generic.WebDriverCommonUtils;
+import com.vtiger.objectRepository.ContactsPageMember;
+import com.vtiger.objectRepository.CreateNewContactPageMember;
+import com.vtiger.objectRepository.CreateNewContactWithOrganizationsChildWindowPageMember;
+import com.vtiger.objectRepository.HomePageMember;
+import com.vtiger.objectRepository.LoginPageMember;
 
 public class CreateContactWithOrganizationIT {
-	/*public static void main (String []args) throws InterruptedException, IOException
-	{*/
 	@Test
 	public void CreateContactWithOrganizationIT() throws IOException {
 	WebDriverCommonUtils picker= new WebDriverCommonUtils();
 		WebDriver driver=new ChromeDriver();
 		picker.implicitwait(driver);
 		picker.maximizeWindow(driver);
-		//Open Vtiger application
+//Open Vtiger application
 		driver.get(picker.getDataFromProperty(Iconstant.propfilePath, "url"));
-		//validate the login page 
+		LoginPageMember log=new LoginPageMember(driver);
+//validate the login page 
+		        String lg=log.getvalidate_loginpage().getText();
+		          SoftAssert soft= new SoftAssert();
+				  soft.assertEquals(lg, "vtiger", "loing pass");
+		          String un=picker.getDataFromProperty(Iconstant.propfilePath,"username");
+		          String pwd=picker.getDataFromProperty(Iconstant.propfilePath,"password");
+		          log.loginToApp(un,pwd);
+// Validate Home page
+		        HomePageMember homeobj=new HomePageMember(driver);
+		       String home=homeobj.getValidateHomePage().getText();
+		       Assert.assertEquals(home, "Home", "Homepage  pass");
+		       homeobj.getContatctlink().click();
+//Click on Create contact + icon page
+		       ContactsPageMember contacts=new ContactsPageMember(driver);
+		       contacts.getCreateContactPlusIcon().click();
+//Select salutationtype
+		       CreateNewContactPageMember createContact=new CreateNewContactPageMember(driver);
+		       WebElement slist=createContact.getSalutationtype();
+			   picker.pickItemFromList(slist, "Mrs");
+//Enter fistname
+	createContact.getFistname().sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateContactWithOrganizationIT",1, 1));
+//Enter lastname 
+	createContact.getLastname().sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateContactWithOrganizationIT",2, 1));
+//click on orgonization icon
+	     createContact.getOrgonizationIcon().click();
+//childWindowPage	 
+ CreateNewContactWithOrganizationsChildWindowPageMember cwpgm=new CreateNewContactWithOrganizationsChildWindowPageMember(driver);
+		picker.childWindowHanlde(driver);
+		   //bytiltle
+		//picker.switchtodwindow(driver, "childwindtit");
+// Enter org in search box
+		cwpgm.getSearch_Txt().sendKeys("vtiger");
+//click on search btn
+		     cwpgm.getsearch_Btn().click();
+//Select org
+		    cwpgm.getclickOnOrg();
+//Swicth to main window		    
+		picker.mainWindowHandle(driver);
+		             //bytiltle
+                     // picker.switchtodwindow(driver, "Contacts");
+//Enter mobile no	
+createContact.getMobileNo().sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateContactWithOrganizationIT", 3, 1));
+//click on save
+	           createContact.getSave_Btn().click();
+		soft.assertAll();
+	}
+	}
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*		//validate the login page 
 	String lg =driver.findElement(By.linkText("vtiger")).getText();
 	   SoftAssert soft= new SoftAssert();
 	   soft.assertEquals(lg, "vtiger", "loing pass");
@@ -48,18 +128,6 @@ public class CreateContactWithOrganizationIT {
 	//Enter fistname
 	driver.findElement(By.name("firstname")).sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateContactWithOrganizationIT", 1, 1));
 	driver.findElement(By.name("lastname")).sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateContactWithOrganizationIT", 2, 1));
-	//click on orgonization icon
-	driver.findElement(By.xpath("//img[@title='Select'][1]")).click();
-	picker.childWindowHanlde(driver);
-	driver.findElement(By.id("search_txt")).sendKeys("vtiger");
-	   driver.findElement(By.name("search")).click();
-	   driver.findElement(By.linkText("vtiger")).click();
-	 picker.mainWindowHandle(driver);
-    driver.findElement(By.id("mobile")).sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateContactWithOrganizationIT", 3, 1));
-	//click on save
-	driver.findElement(By.cssSelector("input[type=submit]")).click();
-	soft.assertAll();
-}
-}
-
+	*/
+	
 

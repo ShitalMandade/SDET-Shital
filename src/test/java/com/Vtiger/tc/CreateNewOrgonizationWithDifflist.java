@@ -23,99 +23,104 @@ import org.testng.asserts.SoftAssert;
 import com.vtiger.generic.Iconstant;
 import com.vtiger.generic.JavaUtilityMethod;
 import com.vtiger.generic.WebDriverCommonUtils;
+import com.vtiger.objectRepository.CreateNewOrgonizationPageMember;
+import com.vtiger.objectRepository.HomePageMember;
+import com.vtiger.objectRepository.LoginPageMember;
+import com.vtiger.objectRepository.OginizationPageMember;
+import com.vtiger.objectRepository.OrganizationInformationPageMember;
 
-public class CreateOrgonizationWithDifflist {
-	/*public static void main (String []args) throws InterruptedException, IOException
-	{*/
-	@Test 
-	public CreateOrgonizationWithDifflist() throws IOException, InterruptedException{
-	    CreateOrgonizationWithDifflist cn=new CreateOrgonizationWithDifflist();
-		JavaUtilityMethod  ju=new JavaUtilityMethod ();
+public class CreateNewOrgonizationWithDifflist
+{
+	
+	public static void main(String []args)throws IOException, InterruptedException
+	//@Test
+	//public CreateNewOrgonizationWithDifflist() throws IOException, InterruptedException
+	{
 		WebDriverCommonUtils picker= new WebDriverCommonUtils();
 		WebDriver driver=new ChromeDriver();
 		picker.implicitwait(driver);
 		picker.maximizeWindow(driver);
-		//Open Vtiger application
+//Open Vtiger application
 		driver.get(picker.getDataFromProperty(Iconstant.propfilePath, "url"));
-		 //validate the login page 
-	String lg =driver.findElement(By.linkText("vtiger")).getText();
-	   SoftAssert soft= new SoftAssert();
-	   soft.assertEquals(lg, "vtiger", "loing pass");
-	driver.findElement(By.name("user_name")).sendKeys(picker.getDataFromProperty(Iconstant.propfilePath,"username"));
-	driver.findElement(By.name("user_password")).sendKeys(picker.getDataFromProperty(Iconstant.propfilePath,"password"));
-	driver.findElement(By.id("submitButton")).click();
-	// Validate Home page
-	String home =driver.findElement(By.className ("hdrLink")).getText();
-	 Assert.assertEquals(home, "Home", "Homepage  pass");
-	  //Navigate to More and click on Projects
-	  WebElement moveToMore = driver.findElement(By.linkText("More"));
-	  picker.movetoelement(driver, moveToMore);
-	  		driver.findElement(By.name("Organizations")).click();
-	  //Click on Create Organization + icon
-driver.findElement(By.cssSelector("img[title='Create Organization...']")).click(); 
-//provide org name	randomly
-	  		int random= ju.createRandomNumber();
-	  		String OrgonizationName= "orgo"+random; //cn.getOrgonizationName();
-	  		driver.findElement(By.name("accountname")).sendKeys(OrgonizationName);
-	 //Enter phone
-driver.findElement(By.id("phone")).sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",1,1));
-	  		//select Industry from list
-	  		
- WebElement ilist=driver.findElement(By.name("industry"));
+		LoginPageMember log=new LoginPageMember(driver);
+//validate the login page 
+		        String lg=log.getvalidate_loginpage().getText();
+		          SoftAssert soft= new SoftAssert();
+				  soft.assertEquals(lg, "vtiger", "loing pass");
+		          String un=picker.getDataFromProperty(Iconstant.propfilePath,"username");
+		          String pwd=picker.getDataFromProperty(Iconstant.propfilePath,"password");
+		          log.loginToApp(un,pwd);
+	
+//Validate Home page
+		        HomePageMember homeobj=new HomePageMember(driver);
+		       String home=homeobj.getValidateHomePage().getText();
+		       Assert.assertEquals(home, "Home", "Homepage  pass");
+	//Navigate to More and click on Organizations
+		      WebElement moveToMore = homeobj.getMoveToMore();
+	          picker.movetoelement(driver,moveToMore);
+//click on Orgonizations module
+	          homeobj.getOrglink().click();
+	     OginizationPageMember orgpage=new OginizationPageMember(driver);
+	      
+//Click on Create Organization + icon
+	     orgpage.getOrganizationPlusIcon().click();
+	         
+CreateNewOrgonizationPageMember createorg=new CreateNewOrgonizationPageMember(driver);
+//provide random org name	
+		JavaUtilityMethod ju=new JavaUtilityMethod();
+		int random= ju.createRandomNumber();
+		String OrgonizationName= "orgo"+random; //cn.getOrgonizationName();
+		createorg.getEnterOrganizationName().sendKeys(OrgonizationName);
+//Enter phone
+		createorg.getEnterPhone().sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",1,1));
+//Select Industry from list
+		WebElement ilist=createorg.getIndustry();
+
 picker.pickItemFromList(ilist, picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",2,1));
 //Select accounttype from list
-	  	WebElement typelist=driver.findElement(By.name("accounttype"));
+     WebElement typelist= createorg.getType();
+	  
 picker.pickItemFromList(typelist, picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",3,1));
-	  		//Slect rating from list
-	  		WebElement ratinglist=driver.findElement(By.name("rating"));
+//Slect rating from list
+     WebElement ratinglist=createorg.getRating();
+
 picker.pickItemFromList(ratinglist, picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",4,1));
-	  		
-	  	//click on save  //(//input[@value="  Save  "])[2]
-driver.findElement(By.cssSelector("input[value=\"  Save  \"]")).click();
-String actual=driver.findElement(By.className("dvHeaderText")).getText();
+    createorg.getSave_Btn().click();
+	  	
+
+
+//Validation Organization Information page
+    OrganizationInformationPageMember oinfopg=new OrganizationInformationPageMember(driver);
+    String actual =oinfopg.getOrganizationInformationVal().getText();
+
  String expected=picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",5,1);//"Organization Information";
  String result=   actual.contentEquals(expected)?"Organization Information pass":"Organization Information fail";
- driver.findElement(By.linkText("Organizations")).click();
- 
- 
- 
- 
-	  //validate new orgonization added in list or not
-	/*List<WebElement> olist=driver.findElements(By.xpath("//table[@class=\"lvt small\"]/tbody/tr[*]/td[3]"));
-	 
-	  	for(WebElement wb: olist)
-	  	{
-	  		//System.out.println(wb.getText());
-	  		if(wb.getText().equals(OrgonizationName))
-	  		{
-	  			
-	  			System.out.println(wb.getText()+ " :- is newly added");
-	  		}
-	  	}*/
+//click on Organizations
+         oinfopg.getOrganizationClick().click();
+ //Check new organization added on Orgonization page
+ //Enter org in search textbox 
+    WebElement search= orgpage.getSearch_org();
 	  
-	  
-	  WebElement search=driver.findElement(By.name("search_text"));
 	  picker.elementisclickable(driver, search);
 	  search.sendKeys(OrgonizationName);
-	  WebElement olist=driver.findElement(By.xpath("//select[@id='bas_searchfield']"));
-	 // select Organization Name and click();
+//Capture 'In'  List
+	  WebElement olist= orgpage.getInList();
+	  
+// select Organization Name and click();
 	  picker.pickItemFromList(olist,picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",6,1));
-	  //click on search button
-	  driver.findElement(By.name("submit")).click();
-	  //wait for element until display
+//click on search button
+	  orgpage.getSearch_Btn().click();
+	
+//wait for element until display(Dynamic xpath)
 	  WebElement actualorgname1=driver.findElement(By.xpath("//a[text()='"+OrgonizationName+"']/ancestor::table[@class='lvt small']"));
       picker.waitforElement(actualorgname1);
-//System.out.println(actualorgname);
-//	System.out.println(actualorgname1.getText());
+
 boolean result1=actualorgname1.getText().contains(OrgonizationName);
 
 		System.out.println(result1);
 		 soft.assertAll();
-		  
+	}}
 
-		  
-		  }
-}	
 	 
 	  
 	  

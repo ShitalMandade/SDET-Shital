@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="ShitaJdbc.ShitaJdbc.FetchDatafromExcelDataProvider">
+      <class name="com.Vtiger.tc.CreateNewOrgonization">
         <methods>
-          <include name="testcity1" invocation-numbers="0 1 2 3 4"/>
+          <include name="CreateOrgonization"/>
         </methods>
-      </class> <!-- ShitaJdbc.ShitaJdbc.FetchDatafromExcelDataProvider -->
+      </class> <!-- com.Vtiger.tc.CreateNewOrgonization -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
