@@ -13,6 +13,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.vtiger.generic.BaseClass;
 import com.vtiger.generic.Iconstant;
 import com.vtiger.generic.JavaUtilityMethod;
 import com.vtiger.generic.WebDriverCommonUtils;
@@ -20,27 +21,18 @@ import com.vtiger.objectRepository.CreateNewOrgonizationPageMember;
 import com.vtiger.objectRepository.HomePageMember;
 import com.vtiger.objectRepository.LoginPageMember;
 import com.vtiger.objectRepository.OginizationPageMember;
+import com.vtiger.objectRepository.OrganizationInformationPageMember;
 
-public class CreateNewOrgonization {	
+public class CreateNewOrgonization extends BaseClass
+{	
 @Test
 	public static void CreateOrgonization() throws IOException 
 	{
 	WebDriverCommonUtils picker= new WebDriverCommonUtils();
-	WebDriver driver=new ChromeDriver();
-	picker.implicitwait(driver);
-	picker.maximizeWindow(driver);
-//Open Vtiger application
-	driver.get(picker.getDataFromProperty(Iconstant.propfilePath, "url"));
-	LoginPageMember log=new LoginPageMember(driver);
-//validate the login page 
-	        String lg=log.getvalidate_loginpage().getText();
-	          SoftAssert soft= new SoftAssert();
-			  soft.assertEquals(lg, "vtiger", "loing pass");
-	          String un=picker.getDataFromProperty(Iconstant.propfilePath,"username");
-	          String pwd=picker.getDataFromProperty(Iconstant.propfilePath,"password");
-	          log.loginToApp(un,pwd);
+	
+
 //Validate Home page
-	        HomePageMember homeobj=new HomePageMember(driver);
+	       HomePageMember homeobj=new HomePageMember(driver);
 	       String home=homeobj.getValidateHomePage().getText();
 	       Assert.assertEquals(home, "Home", "Homepage  pass");
 //Navigate to More and click on Organizations
@@ -62,6 +54,13 @@ public class CreateNewOrgonization {
 	createorg.getEnterPhone().sendKeys(picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",1,1));
 //click on save button
 	createorg.getSave_Btn().click();
+
+	//Validation Organization Information page
+    OrganizationInformationPageMember oinfopg=new OrganizationInformationPageMember(driver);
+    String actual =oinfopg.getOrganizationInformationVal().getText();
+
+ String expected=picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",5,1);//"Organization Information";
+	//driver.findElement(By.xpath("contains[text(),Organization Information]"));
 }
 }
 

@@ -1,4 +1,4 @@
-package com.vtiger.generic;
+package com.vtiger.objectRepository;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
