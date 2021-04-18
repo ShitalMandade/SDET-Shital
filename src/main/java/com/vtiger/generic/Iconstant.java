@@ -9,7 +9,7 @@ String vtigerExcel="/ShitaJdbc/src/test/resources/vtiger_TC_Data.xlsx";
 String connUrlForjdbc="jdbc:mysql://localhost:3306/MyTable\",\"root\",\"root";
                     //"jdbc:mysql://localhost:3306/MyTable","root","root"
  int implicitwaittime=10;
-  int explicitwaittime=20;
+  int explicitwaittime=40;
 
 
 

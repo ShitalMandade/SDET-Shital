@@ -26,18 +26,29 @@ public class HomePageMember {
 		return contatctlink;
 		
 	}
+	//click on Organizations
 	@FindBy(name="Organizations")
 	private WebElement orglink;
 	public WebElement getOrglink() {
 	return orglink;
 	}
-	//Navigate to More and click on Organizations
+	//Navigate to More 
 	
 	@FindBy(linkText="More")
 	private WebElement moveToMore;
 	public WebElement getMoveToMore() {
 	return moveToMore;
 	}
+	//Click on Purchase Order
+	@FindBy(linkText="Purchase Order")
+	private WebElement purchaseOrderlink;
+	public WebElement getPurchaseOrderlink() {
+		return purchaseOrderlink;
+		
+	}
+	
+	
+	
 	
 	
 	//Mouseover to 'Administrator icon' and click on 'sign out'

@@ -2,40 +2,36 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="27213" started-at="2021-04-16T12:59:04Z" finished-at="2021-04-16T12:59:31Z">
+  <suite name="Default suite" duration-ms="22161" started-at="2021-04-18T12:39:59Z" finished-at="2021-04-18T12:40:22Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="27213" started-at="2021-04-16T12:59:04Z" finished-at="2021-04-16T12:59:31Z">
-      <class name="com.Vtiger.tc.CreateNewOrgonization">
-        <test-method status="PASS" signature="beforesuite()[pri:0, instance:com.Vtiger.tc.CreateNewOrgonization@13b32d7]" name="beforesuite" is-config="true" duration-ms="31" started-at="2021-04-16T18:29:04Z" finished-at="2021-04-16T18:29:04Z">
+    <test name="Default test" duration-ms="22161" started-at="2021-04-18T12:39:59Z" finished-at="2021-04-18T12:40:22Z">
+      <class name="com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice">
+        <test-method status="PASS" signature="beforesuite()[pri:0, instance:com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice@3f4d3d]" name="beforesuite" is-config="true" duration-ms="12" started-at="2021-04-18T18:09:59Z" finished-at="2021-04-18T18:09:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforesuite -->
-        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:com.Vtiger.tc.CreateNewOrgonization@13b32d7]" name="launchBrowser" is-config="true" duration-ms="5284" started-at="2021-04-16T18:29:04Z" finished-at="2021-04-16T18:29:09Z">
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice@3f4d3d]" name="launchBrowser" is-config="true" duration-ms="5582" started-at="2021-04-18T18:09:59Z" finished-at="2021-04-18T18:10:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method status="PASS" signature="logintoapp()[pri:0, instance:com.Vtiger.tc.CreateNewOrgonization@13b32d7]" name="logintoapp" is-config="true" duration-ms="3802" started-at="2021-04-16T18:29:09Z" finished-at="2021-04-16T18:29:13Z">
+        <test-method status="PASS" signature="logintoapp()[pri:0, instance:com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice@3f4d3d]" name="logintoapp" is-config="true" duration-ms="3848" started-at="2021-04-18T18:10:05Z" finished-at="2021-04-18T18:10:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logintoapp -->
-        <test-method status="PASS" signature="CreateOrgonization()[pri:0, instance:com.Vtiger.tc.CreateNewOrgonization@13b32d7]" name="CreateOrgonization" duration-ms="15674" started-at="2021-04-16T18:29:13Z" finished-at="2021-04-16T18:29:29Z">
+        <test-method status="PASS" signature="CreatePurchaseOrderWithItemWithoutEnteringListPrice()[pri:0, instance:com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice@3f4d3d]" name="CreatePurchaseOrderWithItemWithoutEnteringListPrice" duration-ms="11558" started-at="2021-04-18T18:10:09Z" finished-at="2021-04-18T18:10:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateOrgonization -->
-        <test-method status="PASS" signature="logoutfromApp()[pri:0, instance:com.Vtiger.tc.CreateNewOrgonization@13b32d7]" name="logoutfromApp" is-config="true" duration-ms="1660" started-at="2021-04-16T18:29:29Z" finished-at="2021-04-16T18:29:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logoutfromApp -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.Vtiger.tc.CreateNewOrgonization@13b32d7]" name="closeBrowser" is-config="true" duration-ms="752" started-at="2021-04-16T18:29:31Z" finished-at="2021-04-16T18:29:31Z">
+        </test-method> <!-- CreatePurchaseOrderWithItemWithoutEnteringListPrice -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice@3f4d3d]" name="closeBrowser" is-config="true" duration-ms="1145" started-at="2021-04-18T18:10:20Z" finished-at="2021-04-18T18:10:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.Vtiger.tc.CreateNewOrgonization@13b32d7]" name="afterSuite" is-config="true" duration-ms="1" started-at="2021-04-16T18:29:31Z" finished-at="2021-04-16T18:29:31Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice@3f4d3d]" name="afterSuite" is-config="true" duration-ms="0" started-at="2021-04-18T18:10:22Z" finished-at="2021-04-18T18:10:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- com.Vtiger.tc.CreateNewOrgonization -->
+      </class> <!-- com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

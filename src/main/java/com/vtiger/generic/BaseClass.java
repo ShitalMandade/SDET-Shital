@@ -83,11 +83,11 @@ public class BaseClass {
 
 		}
 
-		@AfterMethod
+		/*@AfterMethod
 		public void logoutfromApp() throws InterruptedException {
 		//Mouseover to 'Administrator icon' and click on 'sign out'
 			HomePageMember home = new HomePageMember(driver);
 			home.logOut(driver);
 			
-			}
+			}*/
 }

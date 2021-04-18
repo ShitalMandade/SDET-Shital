@@ -3,6 +3,9 @@ package com.vtiger.generic;
 import java.util.Date;
 import java.util.Random;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
 public class JavaUtilityMethod {
 	
 
@@ -18,6 +21,19 @@ public class JavaUtilityMethod {
 		int randomnumber= r.nextInt(10000);
 		return randomnumber;
 	}
+	/**
+	 * @author Shital
+	 *  Scroll down 
+	 * @param driver
+	 */public void scrollDown(WebDriver driver) 
+		{
+		 EventFiringWebDriver efwd=new EventFiringWebDriver(driver );
+	       efwd.executeAsyncScript("window.scrollBy(0,1000);");
+		}
+	
+	
+	
+	
 
 	/**
 	 * @author AMAR-G
