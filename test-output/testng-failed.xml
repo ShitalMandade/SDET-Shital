@@ -3,16 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice">
+      <class name="com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringQTY">
         <methods>
           <include name="launchBrowser"/>
           <include name="logintoapp"/>
-          <include name="CreatePurchaseOrderWithItemWithoutEnteringListPrice"/>
           <include name="closeBrowser"/>
           <include name="beforesuite"/>
+          <include name="CreatePurchaseOrderWithItemWithoutEnteringQTY"/>
           <include name="afterSuite"/>
         </methods>
-      </class> <!-- com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringListPrice -->
+      </class> <!-- com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemWithoutEnteringQTY -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

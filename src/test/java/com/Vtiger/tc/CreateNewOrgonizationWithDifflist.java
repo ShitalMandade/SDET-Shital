@@ -17,9 +17,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.vtiger.generic.BaseClass;
 import com.vtiger.generic.Iconstant;
 import com.vtiger.generic.JavaUtilityMethod;
 import com.vtiger.generic.WebDriverCommonUtils;
@@ -28,8 +30,8 @@ import com.vtiger.objectRepository.HomePageMember;
 import com.vtiger.objectRepository.LoginPageMember;
 import com.vtiger.objectRepository.OginizationPageMember;
 import com.vtiger.objectRepository.OrganizationInformationPageMember;
-
-public class CreateNewOrgonizationWithDifflist
+@Listeners(com.vtiger.generic.ListnerImplementation.class)
+public class CreateNewOrgonizationWithDifflist extends BaseClass
 {
 	
 	public static void main(String []args)throws IOException, InterruptedException
@@ -37,7 +39,7 @@ public class CreateNewOrgonizationWithDifflist
 	//public CreateNewOrgonizationWithDifflist() throws IOException, InterruptedException
 	{
 		WebDriverCommonUtils picker= new WebDriverCommonUtils();
-		WebDriver driver=new ChromeDriver();
+		//WebDriver driver=new ChromeDriver();
 		picker.implicitwait(driver);
 		picker.maximizeWindow(driver);
 //Open Vtiger application

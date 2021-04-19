@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -22,7 +23,7 @@ import com.vtiger.objectRepository.HomePageMember;
 import com.vtiger.objectRepository.LoginPageMember;
 import com.vtiger.objectRepository.OginizationPageMember;
 import com.vtiger.objectRepository.OrganizationInformationPageMember;
-
+@Listeners(com.vtiger.generic.ListnerImplementation.class)
 public class CreateNewOrgonization extends BaseClass
 {	
 @Test

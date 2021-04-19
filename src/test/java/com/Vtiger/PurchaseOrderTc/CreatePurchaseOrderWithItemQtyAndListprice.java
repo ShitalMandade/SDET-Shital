@@ -3,6 +3,7 @@ package com.Vtiger.PurchaseOrderTc;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.vtiger.generic.BaseClass;
@@ -12,7 +13,7 @@ import com.vtiger.objectRepository.CreateNewPurchaseOrderPageMember;
 import com.vtiger.objectRepository.HomePageMember;
 import com.vtiger.objectRepository.PurchaseOrderMember;
 import com.vtiger.objectRepository.VendorsChildWindowMember;
-
+@Listeners(com.vtiger.generic.ListnerImplementation.class)
 public class CreatePurchaseOrderWithItemQtyAndListprice extends BaseClass{
 	
 	

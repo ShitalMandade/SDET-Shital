@@ -12,9 +12,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.vtiger.generic.BaseClass;
 import com.vtiger.generic.Iconstant;
 import com.vtiger.generic.WebDriverCommonUtils;
 import com.vtiger.objectRepository.ContactsPageMember;
@@ -22,12 +24,12 @@ import com.vtiger.objectRepository.CreateNewContactPageMember;
 import com.vtiger.objectRepository.CreateNewContactWithOrganizationsChildWindowPageMember;
 import com.vtiger.objectRepository.HomePageMember;
 import com.vtiger.objectRepository.LoginPageMember;
-
-public class CreateContactWithOrganizationIT {
+@Listeners(com.vtiger.generic.ListnerImplementation.class)
+public class CreateContactWithOrganizationIT extends BaseClass{
 	@Test
 	public void CreateContactWithOrganizationIT() throws IOException {
 	WebDriverCommonUtils picker= new WebDriverCommonUtils();
-		WebDriver driver=new ChromeDriver();
+		//WebDriver driver=new ChromeDriver();
 		picker.implicitwait(driver);
 		picker.maximizeWindow(driver);
 //Open Vtiger application

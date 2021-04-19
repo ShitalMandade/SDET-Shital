@@ -3,6 +3,7 @@ package com.Vtiger.PurchaseOrderTc;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.vtiger.generic.BaseClass;
@@ -13,7 +14,7 @@ import com.vtiger.objectRepository.HomePageMember;
 import com.vtiger.objectRepository.ProductsChildWindowMember;
 import com.vtiger.objectRepository.PurchaseOrderMember;
 import com.vtiger.objectRepository.VendorsChildWindowMember;
-
+@Listeners(com.vtiger.generic.ListnerImplementation.class)
 public class CreatePurchaseOrderWithItemWithoutEnteringQTY extends BaseClass{
 	@Test
 	public void CreatePurchaseOrderWithItemWithoutEnteringQTY() throws IOException
@@ -23,7 +24,7 @@ public class CreatePurchaseOrderWithItemWithoutEnteringQTY extends BaseClass{
 		//Validate Home page
 	       HomePageMember homeobj=new HomePageMember(driver);
 	       String home=homeobj.getValidateHomePage().getText();
-	       Assert.assertEquals(home, "Home", "Homepage  pass");
+	       Assert.assertEquals(home, "Homee", "Homepage  pass");
 //Click on Purchase Order link 
 	       homeobj.getPurchaseOrderlink().click();
 //click on create Purchase order icon  "+"

@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.vtiger.generic.BaseClass;
@@ -13,7 +14,7 @@ import com.vtiger.objectRepository.CreateNewPurchaseOrderPageMember;
 import com.vtiger.objectRepository.HomePageMember;
 import com.vtiger.objectRepository.PurchaseOrderMember;
 import com.vtiger.objectRepository.ServicesChildWindowPageMember;
-
+@Listeners(com.vtiger.generic.ListnerImplementation.class)
 public class CreatePurchaseOrderWithItemAndClickOnDownwardSymbol extends BaseClass{
 	@Test
 	public void CreatePurchaseOrderWithItemAndClickOnDownwardSymbol() throws IOException, InterruptedException 
