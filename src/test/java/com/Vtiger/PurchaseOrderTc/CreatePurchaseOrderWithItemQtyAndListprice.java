@@ -17,7 +17,7 @@ import com.vtiger.objectRepository.VendorsChildWindowMember;
 public class CreatePurchaseOrderWithItemQtyAndListprice extends BaseClass{
 	
 	
-	@Test
+	@Test(groups= {"Regration"})
 	public void CreatePurchaseOrderWithItemQtyAndListprice() throws IOException, InterruptedException
 	{
 		WebDriverCommonUtils picker= new WebDriverCommonUtils();

@@ -16,7 +16,7 @@ import com.vtiger.objectRepository.PurchaseOrderMember;
 import com.vtiger.objectRepository.VendorsChildWindowMember;
 @Listeners(com.vtiger.generic.ListnerImplementation.class)
 public class CreatePurchaseOrderWithItemWithoutEnteringQTY extends BaseClass{
-	@Test
+	@Test(groups= {"Regration"})
 	public void CreatePurchaseOrderWithItemWithoutEnteringQTY() throws IOException
 	{
 		WebDriverCommonUtils picker= new WebDriverCommonUtils();
@@ -24,7 +24,7 @@ public class CreatePurchaseOrderWithItemWithoutEnteringQTY extends BaseClass{
 		//Validate Home page
 	       HomePageMember homeobj=new HomePageMember(driver);
 	       String home=homeobj.getValidateHomePage().getText();
-	       Assert.assertEquals(home, "Homee", "Homepage  pass");
+	       Assert.assertEquals(home, "Home", "Homepage  pass");
 //Click on Purchase Order link 
 	       homeobj.getPurchaseOrderlink().click();
 //click on create Purchase order icon  "+"

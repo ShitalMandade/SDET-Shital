@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="2" parallel="tests">
+  <test name="TestRuner-1">
+    <classes>
+      
+      <class name="com.Vtiger.tc.CreatePurchaseOrderWithItemWithoutEnteringListPrice"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="TestRuner-2">
+    <classes>
+      
+      <class name="com.Vtiger.tc.CreatePurchaseOrderWithItemQtyAndListprice"/>
+     
+    
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

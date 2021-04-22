@@ -7,9 +7,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.vtiger.generic.BaseClass;
 import com.vtiger.generic.WebDriverCommonUtils;
 
-public class HomePageMember {
+public class HomePageMember extends BaseClass{
 	public WebDriverCommonUtils picker= new WebDriverCommonUtils();
 
 	//Validate Home page
@@ -20,8 +21,8 @@ public class HomePageMember {
 		
 	}
 	
-	@FindBy(linkText="Contacts")
-	private WebElement contatctlink;
+	@FindBy(linkText="Contacts"	)
+			private WebElement contatctlink;
 	public WebElement getContatctlink() {
 		return contatctlink;
 		

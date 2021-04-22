@@ -11,11 +11,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import com.vtiger.generic.Iconstant;
 import com.vtiger.generic.WebDriverCommonUtils;
 
-import junit.framework.Assert;
+
 
 public class ListSorintingOfOrg {
 	public static void main (String []args) throws InterruptedException, IOException

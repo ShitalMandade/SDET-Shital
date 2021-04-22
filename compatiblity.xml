@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="2" parallel="tests">
+  <test name="TestRuner-chrome" preserve-order="true">
+  <parameter name="BrowserValue" value="chrome"></parameter>
+    <classes>
+      <class name="com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems"/>
+       <class name="com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemAndClickOnDownwardSymbol"/>
+      
+    </classes>
+  </test> <!-- Test -->
+  <test name="TestRuner-Firefox" preserve-order="true">
+  <parameter name="BrowserValue" value="firefox"></parameter>
+    <classes>
+    <class name="com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems"/>
+       <class name="com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemAndClickOnDownwardSymbol"/>
+      
+      
+     
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

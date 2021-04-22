@@ -16,7 +16,7 @@ import com.vtiger.objectRepository.PurchaseOrderMember;
 import com.vtiger.objectRepository.VendorsChildWindowMember;
 @Listeners(com.vtiger.generic.ListnerImplementation.class)
 public class CreatePurchaseOrderWithItemWithoutEnteringListPrice extends BaseClass {
-	@Test
+	@Test(groups= {"Regration"})
 	public void CreatePurchaseOrderWithItemWithoutEnteringListPrice() throws IOException, InterruptedException
 	{
 		WebDriverCommonUtils picker= new WebDriverCommonUtils();

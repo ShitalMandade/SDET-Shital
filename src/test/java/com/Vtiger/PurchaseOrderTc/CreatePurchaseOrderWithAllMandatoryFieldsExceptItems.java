@@ -15,11 +15,13 @@ import com.vtiger.objectRepository.PurchaseOrderMember;
 import com.vtiger.objectRepository.VendorsChildWindowMember;
 @Listeners(com.vtiger.generic.ListnerImplementation.class)
 public class CreatePurchaseOrderWithAllMandatoryFieldsExceptItems extends BaseClass {
+	WebDriverCommonUtils picker= new WebDriverCommonUtils();
 	
-	@Test
-	public void CreatePurchaseOrderWithItemQtyAndListprice() throws IOException, InterruptedException
+	
+	@Test(groups= {"Smoke"})
+	public void CreatePurchaseOrderWithAllMandatoryFieldsExceptItems() throws IOException, InterruptedException
 	{
-		WebDriverCommonUtils picker= new WebDriverCommonUtils();
+		   
 		 CreateNewPurchaseOrderPageMember cnpopm=new CreateNewPurchaseOrderPageMember(driver);
 		//Validate Home page
 	       HomePageMember homeobj=new HomePageMember(driver);

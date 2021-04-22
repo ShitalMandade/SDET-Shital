@@ -9,19 +9,24 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.vtiger.objectRepository.HomePageMember;
 import com.vtiger.objectRepository.LoginPageMember;
 
 public class BaseClass {
-	
-		public static WebDriver	driver;
+	public static WebDriver staticdriver;// listner
+	public   WebDriver driver;
+		
+		
 		public	JavaUtilityMethod ju = new JavaUtilityMethod();
 		public JdbcgericMethod jdbc=new JdbcgericMethod();
 		
@@ -32,14 +37,14 @@ public class BaseClass {
 	 * Create DB Connection
 	 * And  Extent Report
 	 */
-		@BeforeSuite
+		@BeforeSuite(groups= {"Smoke","Regration"})
 		public void beforesuite() 
 		{
 			System.out.println("==DB connection==");
 			System.out.println("==Extent report==");
 		}
 
-		@AfterSuite
+		@AfterSuite(groups= {"Smoke","Regration"})
 		public void afterSuite() 
 		{
 			System.out.println("==Close DB connection==");
@@ -50,7 +55,8 @@ public class BaseClass {
 		 * Launch Browser and get the URL
 		 * @throws IOException
 		 */
-		@BeforeClass
+		
+		@BeforeClass(groups= {"Smoke","Regration"})
 		public void launchBrowser() throws IOException {
 
 			String browser=picker.getDataFromProperty(Iconstant.propfilePath, "browser");
@@ -66,15 +72,41 @@ public class BaseClass {
 			}
 			picker.maximizeWindow(driver);
 			picker.implicitwait(driver);
+			staticdriver=driver;
+		
 			driver.get(picker.getDataFromProperty(Iconstant.propfilePath, "url"));
 		}
+		
+		
+		/*
+		@Parameters("BrowserValue")
+		@BeforeClass
+		public void launchBrowserCompatability(String browser) throws IOException {
+			Reporter.log("==========Launch combatabilty============");
 
-		@AfterClass
+//String browser=picker.getDataFromProperty(Iconstant.propfilePath, "browser");
+
+			if(browser.equalsIgnoreCase("chrome")) {
+				driver= new ChromeDriver();
+			}
+			else if(browser.equalsIgnoreCase("firefox")) {
+				driver= new FirefoxDriver();
+			}
+			else if(browser.equalsIgnoreCase("ie")) {
+				driver= new InternetExplorerDriver();
+			}
+			picker.maximizeWindow(driver);
+			picker.implicitwait(driver);
+			driver.get(picker.getDataFromProperty(Iconstant.propfilePath, "url"));
+		}
+		*/
+
+		@AfterClass(groups= {"Smoke","Regration"})
 		public void closeBrowser() {
 			driver.quit();
 		}
 
-		@BeforeMethod
+		@BeforeMethod(groups= {"Smoke","Regration"})
 		public void logintoapp() throws IOException {
 			LoginPageMember log = new LoginPageMember(driver);
 			log.loginToApp(picker.getDataFromProperty(Iconstant.propfilePath, "username"),
@@ -82,6 +114,8 @@ public class BaseClass {
 			
 
 		}
+
+		
 
 		/*@AfterMethod
 		public void logoutfromApp() throws InterruptedException {

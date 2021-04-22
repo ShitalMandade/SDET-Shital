@@ -2,17 +2,14 @@ package com.Vtiger.tc;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.vtiger.generic.BaseClass;
 import com.vtiger.generic.Iconstant;
@@ -20,12 +17,12 @@ import com.vtiger.generic.JavaUtilityMethod;
 import com.vtiger.generic.WebDriverCommonUtils;
 import com.vtiger.objectRepository.CreateNewOrgonizationPageMember;
 import com.vtiger.objectRepository.HomePageMember;
-import com.vtiger.objectRepository.LoginPageMember;
 import com.vtiger.objectRepository.OginizationPageMember;
 import com.vtiger.objectRepository.OrganizationInformationPageMember;
 @Listeners(com.vtiger.generic.ListnerImplementation.class)
 public class CreateNewOrgonization extends BaseClass
 {	
+	
 @Test
 	public static void CreateOrgonization() throws IOException 
 	{
@@ -33,19 +30,19 @@ public class CreateNewOrgonization extends BaseClass
 	
 
 //Validate Home page
-	       HomePageMember homeobj=new HomePageMember(driver);
+	         HomePageMember homeobj=new HomePageMember(staticdriver);
 	       String home=homeobj.getValidateHomePage().getText();
 	       Assert.assertEquals(home, "Home", "Homepage  pass");
 //Navigate to More and click on Organizations
 	      WebElement moveToMore = homeobj.getMoveToMore();
-          picker.movetoelement(driver,moveToMore);
+          picker.movetoelement(staticdriver,moveToMore);
 //click on Orgonizations module
           homeobj.getOrglink().click();
-          OginizationPageMember orgpage=new OginizationPageMember(driver);
+          OginizationPageMember orgpage=new OginizationPageMember(staticdriver);
  //Click on Create Organization + icon
        orgpage.getOrganizationPlusIcon().click();
        
- CreateNewOrgonizationPageMember createorg=new CreateNewOrgonizationPageMember(driver);
+ CreateNewOrgonizationPageMember createorg=new CreateNewOrgonizationPageMember(staticdriver);
 //provide random org name	
 	JavaUtilityMethod ju=new JavaUtilityMethod();
 	int random= ju.createRandomNumber();
@@ -57,7 +54,7 @@ public class CreateNewOrgonization extends BaseClass
 	createorg.getSave_Btn().click();
 
 	//Validation Organization Information page
-    OrganizationInformationPageMember oinfopg=new OrganizationInformationPageMember(driver);
+    OrganizationInformationPageMember oinfopg=new OrganizationInformationPageMember(staticdriver);
     String actual =oinfopg.getOrganizationInformationVal().getText();
 
  String expected=picker.getDataFromExcel(Iconstant.vtigerExcel,"CreateOrgonizationWithDifflist",5,1);//"Organization Information";

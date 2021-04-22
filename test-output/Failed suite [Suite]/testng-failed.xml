@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Suite]]" parallel="methods">
+  <test name="Test(failed)(failed)" parallel="methods">
+    <classes>
+      <class name="com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="logintoapp"/>
+          <include name="closeBrowser"/>
+          <include name="CreatePurchaseOrderWithItemQtyAndListprice"/>
+          <include name="beforesuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems -->
+      <class name="com.Vtiger.tc.CreateNewOrgonization">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="logintoapp"/>
+          <include name="closeBrowser"/>
+          <include name="beforesuite"/>
+          <include name="CreateOrgonization"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.Vtiger.tc.CreateNewOrgonization -->
+    </classes>
+  </test> <!-- Test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Suite]] -->

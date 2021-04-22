@@ -1,5 +1,7 @@
 package com.vtiger.objectRepository;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,9 +36,9 @@ public class CreateNewOrgonizationPageMember {
 		private WebElement saveBtn;
 	//Select Industry from list
 		@FindBy(name="industry")
-		private WebElement industry;
+		private List<WebElement> industry;
 		
-		public WebElement getIndustry() {
+		public List<WebElement> getIndustry() {
 			return industry;
 		}
 	//Select Type from list

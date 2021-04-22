@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class OginizationPageMember {
+import com.vtiger.generic.BaseClass;
+
+public class OginizationPageMember extends BaseClass{
 //click on Create Organization + icon
 			@FindBy(css="img[title='Create Organization...']")
 			private WebElement OrganizationPlusIcon;
@@ -59,7 +61,7 @@ public class OginizationPageMember {
 			
 			
 			
-	public OginizationPageMember ( WebDriver driver)
+	public OginizationPageMember (WebDriver driver)
 	{
 		PageFactory.initElements(driver, this);
 	}
