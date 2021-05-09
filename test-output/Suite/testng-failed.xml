@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="methods">
-  <test name="Test-1(failed)" parallel="methods">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <listeners>
+    <listener class-name="com.vtiger.generic.ListnerImplementation"/>
+  </listeners>
+  <test name="TestRuner-1(failed)" parallel="tests">
     <classes>
-      <class name="com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemAndClickOnDownwardSymbol">
+      <class name="com.Vtiger.tc.CreatePurchaseOrderWithItemWithoutEnteringListPrice">
         <methods>
           <include name="launchBrowser"/>
-          <include name="CreatePurchaseOrderWithItemAndClickOnDownwardSymbol"/>
           <include name="logintoapp"/>
+          <include name="CreatePurchaseOrderWithItemWithoutEnteringListPrice"/>
           <include name="closeBrowser"/>
           <include name="beforesuite"/>
           <include name="afterSuite"/>
         </methods>
-      </class> <!-- com.Vtiger.PurchaseOrderTc.CreatePurchaseOrderWithItemAndClickOnDownwardSymbol -->
+      </class> <!-- com.Vtiger.tc.CreatePurchaseOrderWithItemWithoutEnteringListPrice -->
     </classes>
-  </test> <!-- Test-1(failed) -->
+  </test> <!-- TestRuner-1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -24,7 +24,7 @@ public class CreatePurchaseOrderWithItemWithoutEnteringListPrice extends BaseCla
 		//Validate Home page
 	       HomePageMember homeobj=new HomePageMember(driver);
 	       String home=homeobj.getValidateHomePage().getText();
-	       Assert.assertEquals(home, "Home", "Homepage  pass");
+	       Assert.assertEquals(home, "Homee", "Homepage  pass");
 //Click on Purchase Order link 
 	       homeobj.getPurchaseOrderlink().click();
 //click on create Purchase order icon  "+"

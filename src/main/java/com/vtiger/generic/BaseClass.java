@@ -1,14 +1,20 @@
 package com.vtiger.generic;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
@@ -23,7 +29,7 @@ import com.vtiger.objectRepository.HomePageMember;
 import com.vtiger.objectRepository.LoginPageMember;
 
 public class BaseClass {
-	public static WebDriver staticdriver;// listner
+	
 	public   WebDriver driver;
 		
 		
@@ -31,6 +37,7 @@ public class BaseClass {
 		public JdbcgericMethod jdbc=new JdbcgericMethod();
 		
 		public WebDriverCommonUtils picker= new WebDriverCommonUtils();
+		public static WebDriver staticdriver;// listner
 
 
 	/**
@@ -70,9 +77,10 @@ public class BaseClass {
 			else if(browser.equalsIgnoreCase("ie")) {
 				driver= new InternetExplorerDriver();
 			}
+			staticdriver=driver;
 			picker.maximizeWindow(driver);
 			picker.implicitwait(driver);
-			staticdriver=driver;
+			//staticdriver=driver;
 		
 			driver.get(picker.getDataFromProperty(Iconstant.propfilePath, "url"));
 		}
@@ -113,6 +121,36 @@ public class BaseClass {
 					picker.getDataFromProperty(Iconstant.propfilePath, "password"));
 			
 
+		}
+		public static String getscreenshot( String name) throws IOException 
+		{
+			/* Date d= new Date();
+			String CurrentTimeDate=d.toString().replace(":","-");
+			System.out.println(" CurrentTimeDate   " +CurrentTimeDate);
+		//	String tCName= agr0.getName();
+			///System.out.println(tCName+"    TC fail");
+			//System.out.println(agr0.getName()+"  TC  Execition Failed");
+			EventFiringWebDriver efwd=new EventFiringWebDriver(staticdriver);
+			File sourceFile =efwd.getScreenshotAs(OutputType.FILE);
+			String destfile=	"./FailedScreenshot/"+ CurrentTimeDate+".png";
+			try
+			{   
+				//  "./Screenshot/"
+			
+			FileUtils.copyFile(sourceFile,new File(destfile));
+			}
+			
+			catch(IOException e)
+			{
+			e.printStackTrace();		
+		    }*/
+			
+		   File srcfile =((TakesScreenshot) staticdriver).getScreenshotAs(OutputType.FILE);
+			String destfile= System.getProperty("user.dir")+"/Screenshots/"+name+".png";
+			File finaldest = new File(destfile) ;
+			FileUtils.copyFile(srcfile,finaldest);
+	
+			return destfile;
 		}
 
 		

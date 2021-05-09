@@ -1,5 +1,6 @@
 package com.Vtiger.PurchaseOrderTc;
 
+
 import java.io.IOException;
 
 import org.testng.Assert;
@@ -19,9 +20,10 @@ public class CreatePurchaseOrderWithAllMandatoryFieldsExceptItems extends BaseCl
 	
 	
 	@Test(groups= {"Smoke"})
-	public void CreatePurchaseOrderWithAllMandatoryFieldsExceptItems() throws IOException, InterruptedException
+	
+	public void CreatePurchaseOrderWithItemQtyAndListprice() throws IOException, InterruptedException
 	{
-		   
+		WebDriverCommonUtils picker= new WebDriverCommonUtils();
 		 CreateNewPurchaseOrderPageMember cnpopm=new CreateNewPurchaseOrderPageMember(driver);
 		//Validate Home page
 	       HomePageMember homeobj=new HomePageMember(driver);
@@ -58,3 +60,4 @@ cnpopm.getSubject_txt().sendKeys((picker.getDataFromExcel(Iconstant.vtigerExcel,
 }
 
 }
+

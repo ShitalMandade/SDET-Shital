@@ -2,32 +2,32 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="26439" started-at="2021-04-21T12:18:44Z" finished-at="2021-04-21T12:19:10Z">
+  <suite name="Suite" duration-ms="64061" started-at="2021-05-02T13:33:55Z" finished-at="2021-05-02T13:34:59Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="26439" started-at="2021-04-21T12:18:44Z" finished-at="2021-04-21T12:19:10Z">
+    <test name="Test" duration-ms="64061" started-at="2021-05-02T13:33:55Z" finished-at="2021-05-02T13:34:59Z">
       <class name="com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems">
-        <test-method status="PASS" signature="beforesuite()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@12b07fd]" name="beforesuite" is-config="true" duration-ms="15" started-at="2021-04-21T17:48:44Z" finished-at="2021-04-21T17:48:44Z">
+        <test-method status="PASS" signature="beforesuite()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@1213b92]" name="beforesuite" is-config="true" duration-ms="45" started-at="2021-05-02T19:03:55Z" finished-at="2021-05-02T19:03:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforesuite -->
-        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@12b07fd]" name="launchBrowser" is-config="true" duration-ms="7021" started-at="2021-04-21T17:48:44Z" finished-at="2021-04-21T17:48:51Z">
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@1213b92]" name="launchBrowser" is-config="true" duration-ms="25115" started-at="2021-05-02T19:03:55Z" finished-at="2021-05-02T19:04:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method status="PASS" signature="logintoapp()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@12b07fd]" name="logintoapp" is-config="true" duration-ms="3726" started-at="2021-04-21T17:48:51Z" finished-at="2021-04-21T17:48:55Z">
+        <test-method status="PASS" signature="logintoapp()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@1213b92]" name="logintoapp" is-config="true" duration-ms="12488" started-at="2021-05-02T19:04:20Z" finished-at="2021-05-02T19:04:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logintoapp -->
-        <test-method status="PASS" signature="CreatePurchaseOrderWithItemQtyAndListprice()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@12b07fd]" name="CreatePurchaseOrderWithItemQtyAndListprice" duration-ms="14678" started-at="2021-04-21T17:48:55Z" finished-at="2021-04-21T17:49:09Z">
+        <test-method status="PASS" signature="CreatePurchaseOrderWithItemQtyAndListprice()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@1213b92]" name="CreatePurchaseOrderWithItemQtyAndListprice" duration-ms="25326" started-at="2021-05-02T19:04:33Z" finished-at="2021-05-02T19:04:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreatePurchaseOrderWithItemQtyAndListprice -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@12b07fd]" name="closeBrowser" is-config="true" duration-ms="965" started-at="2021-04-21T17:49:09Z" finished-at="2021-04-21T17:49:10Z">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@1213b92]" name="closeBrowser" is-config="true" duration-ms="1070" started-at="2021-05-02T19:04:58Z" finished-at="2021-05-02T19:04:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@12b07fd]" name="afterSuite" is-config="true" duration-ms="0" started-at="2021-04-21T17:49:10Z" finished-at="2021-04-21T17:49:10Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.Vtiger.tc.CreatePurchaseOrderWithAllMandatoryFieldsExceptItems@1213b92]" name="afterSuite" is-config="true" duration-ms="0" started-at="2021-05-02T19:04:59Z" finished-at="2021-05-02T19:04:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
